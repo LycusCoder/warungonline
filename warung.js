@@ -2,7 +2,6 @@
 
 // Menangani tombol chatbot
 document.getElementById('chatbotButton').addEventListener('click', function() {
-    console.log('Chatbot button clicked');
     document.getElementById('chatbotContainer').classList.toggle('hidden');
 });
 
@@ -29,4 +28,35 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    // Menangani tombol pencarian
+    document.getElementById('searchButton').addEventListener('click', function() {
+        var searchContainer = document.getElementById('searchContainer');
+        searchContainer.classList.toggle('hidden');
+    });
+
+    // Countdown Timer
+    function startCountdown(duration, display) {
+        var timer = duration, hours, minutes, seconds;
+        setInterval(function () {
+            hours = parseInt(timer / 3600, 10);
+            minutes = parseInt((timer % 3600) / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = hours + ":" + minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    // Memulai countdown saat halaman dimuat
+    var countdownDuration = 60 * 60 * 24; // 24 hours in seconds
+    var display = document.querySelector('#countdown');
+    startCountdown(countdownDuration, display);
 });
