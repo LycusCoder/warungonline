@@ -2,6 +2,7 @@
 
 // Menangani tombol chatbot
 document.getElementById('chatbotButton').addEventListener('click', function() {
+    console.log('Chatbot button clicked');
     document.getElementById('chatbotContainer').classList.toggle('hidden');
 });
 
